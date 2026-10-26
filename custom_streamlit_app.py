@@ -1310,15 +1310,12 @@ hide_st_style = """
             #MainMenu {visibility: hidden;}
             footer {visibility: hidden;}
             
-            /* Streamlit Cloud ka top-right toolbar/buttons hide karein */
-            [data-testid="stToolbar"] {
-                display: none !important;
+            /* Sirf top-right deploy/share buttons aur toolbar ko hide karein */
+            header[data-testid="stHeader"] {
+                background: transparent !important;
             }
-            
-            /* Sidebar collapse/expand button ko hamesha visible rakhein */
-            [data-testid="collapsedControl"] {
-                display: block !important;
-                visibility: visible !important;
+            .stToolbar {
+                display: none !important;
             }
             </style>
             """
