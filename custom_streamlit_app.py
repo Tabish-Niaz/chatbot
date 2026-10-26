@@ -1589,6 +1589,14 @@ else:
             
         if not history_shown:
             st.markdown("<p style='font-size:0.8rem; color:#475569; font-style:italic; padding-left:10px;'>No previous sessions</p>", unsafe_allow_html=True)
+
+        if st.button("🗑️ Clear All History", use_container_width=True):
+          st.session_state.all_chats = {}
+          st.session_state.messages = []
+          if os.path.exists(HISTORY_FILE):
+            os.remove(HISTORY_FILE)
+          st.success("History cleared!")
+          st.rerun()
         
         st.markdown("<p class='sidebar-section-title'>Settings</p>", unsafe_allow_html=True)
         with st.expander("⚙️ Model & Behavior"):
