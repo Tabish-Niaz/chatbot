@@ -1295,12 +1295,27 @@ st.set_page_config(
     initial_sidebar_state='expanded'
 )
 
-# Streamlit ke default Header (Fork/GitHub) aur Footer ko hide karne ka CSS
+# # Streamlit ke default Header (Fork/GitHub) aur Footer ko hide karne ka CSS
+# hide_st_style = """
+#             <style>
+#             #MainMenu {visibility: hidden;}
+#             footer {visibility: hidden;}
+#             header {visibility: hidden;}
+#             </style>
+#             """
+# st.markdown(hide_st_style, unsafe_allow_html=True)
+
+# Streamlit ke default Header aur Footer ko hide karne ka CSS (Sidebar button ko safe rakhte hue)
 hide_st_style = """
             <style>
             #MainMenu {visibility: hidden;}
             footer {visibility: hidden;}
-            header {visibility: hidden;}
+            
+            /* Sidebar collapse/expand button ko hamesha visible rakhein */
+            [data-testid="collapsedControl"] {
+                display: block !important;
+                visibility: visible !important;
+            }
             </style>
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)
