@@ -1305,11 +1305,15 @@ st.set_page_config(
 #             """
 # st.markdown(hide_st_style, unsafe_allow_html=True)
 
-# Streamlit ke default Header aur Footer ko hide karne ka CSS (Sidebar button ko safe rakhte hue)
 hide_st_style = """
             <style>
             #MainMenu {visibility: hidden;}
             footer {visibility: hidden;}
+            
+            /* Streamlit Cloud ka top-right toolbar/buttons hide karein */
+            [data-testid="stToolbar"] {
+                display: none !important;
+            }
             
             /* Sidebar collapse/expand button ko hamesha visible rakhein */
             [data-testid="collapsedControl"] {
